@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 10:19:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 22:15:55 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/19 00:21:53 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	input_cmp(char **argv, t_fractol *frac)
 void	check_valid(int argc, char **argv, t_fractol *frac)
 {
 	if (frac == NULL)
-		eixt(1);
+		exit(1);
 	if (argc == 2)
 		input_cmp(argv, frac);
 	else
@@ -39,7 +39,7 @@ void	fractol(t_fractol *frac)
 	init_sturct(frac);
 	draw(frac);
 	mlx_put_image_to_window(frac->mlx->mlx_ptr, frac->mlx->win, \
-	frac->img.img_ptr, 0, 0);
+	frac->img->img_ptr, 0, 0);
 	mlx_loop(frac->mlx->mlx_ptr);
 	return ;
 }

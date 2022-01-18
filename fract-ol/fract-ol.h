@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 22:19:13 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/19 00:23:03 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@ typedef struct	s_axis
 typedef struct	s_fractol
 {
 	int		(*function)(struct s_fractol *);
+	int		loop_max;
 	t_axis		*axis;
 	t_z			*z;
 	t_c			*c;
-	t_img		img;
+	t_img		*img;
 	t_mlx		*mlx;
 }				t_fractol;
 
@@ -77,6 +78,7 @@ void	fractol(t_fractol *frac);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int	mandelbrot(t_fractol *frac);
+int	calc_mandelbrot(t_fractol *frac, t_axis *axis, t_z *z, t_c *c);
 
 int	julia(t_fractol *frac);
 
@@ -85,7 +87,7 @@ void	free_exit_2(t_fractol *frac);
 
 void	init_sturct(t_fractol *frac);
 void	init_mlx_struct(t_mlx *mlx);
-void	init_img_struct(t_mlx *mlx, t_img img);
+void	init_img_struct(t_mlx *mlx, t_img *img);
 void	init_zc_struct(t_z *z, t_c *c);
 void	init_axis_struct(t_axis *axis);
 

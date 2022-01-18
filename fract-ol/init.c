@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 21:31:19 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 22:16:55 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/19 00:26:46 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void	init_sturct(t_fractol *frac)
 {
 	frac->mlx = (t_mlx *)malloc(sizeof(t_mlx));
+	frac->img = (t_img *)malloc(sizeof(t_img));
 	frac->z = (t_z *)malloc(sizeof(t_z));
 	frac->c = (t_c *)malloc(sizeof(t_c));
 	frac->axis = (t_axis *)malloc(sizeof(t_axis));
-	if (!frac->mlx || !frac->z || !frac->c || !frac->axis)
-		free_exit(frac);
+	if (!frac->mlx || !frac->img || !frac->z || !frac->c || !frac->axis)
+		free_exit_2(frac);
+	frac->loop_max = 42;
 	init_mlx_struct(frac->mlx);
 	init_img_struct(frac->mlx, frac->img);
 	init_zc_struct(frac->z, frac->c);
@@ -34,12 +36,12 @@ void	init_mlx_struct(t_mlx *mlx)
 	return ;
 }
 
-void	init_img_struct(t_mlx *mlx, t_img img)
+void	init_img_struct(t_mlx *mlx, t_img *img)
 {
-	img.img_ptr = mlx_new_image(mlx->mlx_ptr, \
+	img->img_ptr = mlx_new_image(mlx->mlx_ptr, \
 	IMG_WIDTH, IMG_HEIGHT);
-	img.data = (int *)mlx_get_data_addr(img.img_ptr, \
-	&img.bpp, &img.size_l, &img.endian);
+	img->data = (int *)mlx_get_data_addr(img->img_ptr, \
+	&img->bpp, &img->size_l, &img->endian);
 	return ;
 }
 
