@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 20:12:40 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/06 17:24:34 by seungsle          #+#    #+#             */
+/*   Updated: 2021/05/13 12:49:31 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
-
-int mandelbrot(t_fractol *frac)
+int	ft_isdigit(int c)
 {
-	return 0;
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	return (0);
 }

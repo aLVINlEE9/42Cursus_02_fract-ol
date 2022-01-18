@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 20:12:40 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/18 13:49:30 by seungsle          #+#    #+#             */
+/*   Updated: 2021/05/23 14:54:44 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "libft.h"
 
-int mandelbrot(t_fractol *frac)
+t_list	*ft_lstlast(t_list *lst)
 {
-	return 0;
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
+	return (lst);
 }

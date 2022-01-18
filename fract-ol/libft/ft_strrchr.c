@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 20:12:40 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/10 15:36:57 by seungsle          #+#    #+#             */
+/*   Updated: 2021/05/19 15:22:17 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "libft.h"
 
-int mandelbrot(t_fractol *frac)
+char	*ft_strrchr(const char *s, int c)
 {
-	return 0;
+	int		i;
+	char	*last;
+
+	i = 0;
+	last = NULL;
+	while (1)
+	{
+		if ((char)s[i] == (char)c)
+			last = (char *)(s + i);
+		if ((char)s[i] == '\0')
+			break ;
+		i++;
+	}
+	return (last);
 }

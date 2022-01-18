@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 20:12:40 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/06 15:12:30 by seungsle          #+#    #+#             */
+/*   Updated: 2021/05/18 17:01:13 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "libft.h"
 
-int mandelbrot(t_fractol *frac)
+void	ft_bzero(void *s, size_t n)
 {
-	return 0;
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = s;
+	if (n == 0)
+		return ;
+	while (i++ < n)
+	{
+		*ptr++ = 0;
+	}
+	return ;
 }

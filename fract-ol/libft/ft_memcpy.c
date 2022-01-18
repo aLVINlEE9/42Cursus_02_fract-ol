@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 20:12:40 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/06 15:12:55 by seungsle          #+#    #+#             */
+/*   Updated: 2021/05/19 14:32:52 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "libft.h"
 
-int mandelbrot(t_fractol *frac)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	return 0;
+	size_t			i;
+	unsigned char	*dst_u;
+	unsigned char	*src_u;
+
+	i = 0;
+	dst_u = (unsigned char *)dst;
+	src_u = (unsigned char *)src;
+	if (dst_u == NULL && src_u == NULL)
+		return (NULL);
+	while (n--)
+	{
+		dst_u[i] = src_u[i];
+		i++;
+	}
+	return (dst);
 }

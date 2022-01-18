@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 20:12:40 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/13 14:24:11 by seungsle          #+#    #+#             */
+/*   Updated: 2021/07/22 11:32:20 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "libft.h"
 
-int mandelbrot(t_fractol *frac)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	return 0;
+	char	*result;
+
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	result = (char *)malloc(sizeof(char) * len + 1);
+	if (!(result))
+		return (NULL);
+	ft_memcpy(result, s + start, len);
+	result[len] = '\0';
+	return (result);
 }
