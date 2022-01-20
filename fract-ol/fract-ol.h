@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 20:44:41 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 22:00:29 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ typedef struct	s_fractol
 	int		(*function)(struct s_fractol *, t_axis *, t_z *, t_c *);
 	int		loop_max;
 	int		loop;
-	int		zoom;
-	int		center[2];
+	double		zoom;
+	double		center[2];
 	t_clr		*clr;
 	t_axis		*axis;
 	t_z			*z;
