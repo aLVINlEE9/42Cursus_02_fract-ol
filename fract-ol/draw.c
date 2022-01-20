@@ -6,11 +6,16 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:22:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/19 00:27:15 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 11:14:40 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
+
+void	color_set(t_fractol *frac)
+{
+	return ;
+}
 
 int	get_color(t_fractol *frac)
 {

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/19 00:23:03 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 11:15:06 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ void	init_zc_struct(t_z *z, t_c *c);
 void	init_axis_struct(t_axis *axis);
 
 void	draw(t_fractol *frac);
+void	color_set(t_fractol *frac);
+int	get_color(t_fractol *frac);
 
 #endif
