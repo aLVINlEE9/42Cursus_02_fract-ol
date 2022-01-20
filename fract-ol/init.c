@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 21:31:19 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 14:45:02 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:37:27 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_sturct(t_fractol *frac)
 	if (!frac->mlx || !frac->img || !frac->z || !frac->c || !frac->axis \
 	|| !frac->clr)
 		free_exit_2(frac);
-	frac->loop_max = 42;
+	frac->loop_max = 100;
 	frac->loop = 0;
 	init_mlx_struct(frac->mlx);
 	init_img_struct(frac->mlx, frac->img);

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 13:33:42 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:45:20 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@ int	mandelbrot(t_fractol *frac, t_axis *axis, t_z *z, t_c *c)
 	double	temp;
 
 	i = -1;
-	c->r = -0.75;
-	c->i = 0;
-	z->r = ((axis->x - WIN_WIDTH / 2) * 4.0 / WIN_WIDTH);
-	z->i = ((WIN_HEIGHT / 2) - axis->y) * 4.0 / WIN_HEIGHT;
+	frac->zoom = 200;
+	frac->center[0] = 0;
+	frac->center[1] = 0;
+	c->r = ((axis->x - WIN_WIDTH / 2) * (4.0 / frac->zoom) / WIN_WIDTH);
+	c->i = ((WIN_HEIGHT / 2) - axis->y) * (4.0 / frac->zoom) / WIN_HEIGHT;
+	z->r = 0;
+	z->i = 0;
 	while(++i < frac->loop_max)
 	{
 		temp = z->r;
 		z->r = (z->r * z->r) - (z->i * z->i) + c->r;
 		z->i = 2 * temp * z->i + c->i;
-		if ((z->r * z->r) + (z->i * z->i) > 4.0)
+		if ((z->r * z->r) + (z->i * z->i) > 4)
 			break;
 	}
 	return (i);

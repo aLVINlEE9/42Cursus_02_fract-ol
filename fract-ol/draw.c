@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:22:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 14:44:17 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:20:50 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	put_color(t_fractol *frac, t_img *img, int x, int y)
 {
-	t_clr *clr;
-	int offset;
-	int loop;
-	
+	t_clr	*clr;
+	int		offset;
+	int		loop;
+
 	clr = frac->clr;
 	loop = frac->function(frac, frac->axis, frac->z, frac->c);
 	if (loop == frac->loop_max)
@@ -41,10 +41,10 @@ void	put_color(t_fractol *frac, t_img *img, int x, int y)
 
 void	draw(t_fractol *frac)
 {
-	int count_h;
-	int count_w;
-	t_axis *axis;
-	
+	int		count_h;
+	int		count_w;
+	t_axis	*axis;
+
 	axis = frac->axis;
 	count_h = -1;
 	while (++count_h < WIN_HEIGHT)
