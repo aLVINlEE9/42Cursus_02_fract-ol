@@ -6,22 +6,13 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:39:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 11:14:19 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 13:33:42 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
 
-int mandelbrot(t_fractol *frac)
-{
-	int	i;
-
-	i = calc_mandelbrot(frac, frac->axis, frac->z, frac->c);
-
-	return (i);
-}
-
-int	calc_mandelbrot(t_fractol *frac, t_axis *axis, t_z *z, t_c *c)
+int	mandelbrot(t_fractol *frac, t_axis *axis, t_z *z, t_c *c)
 {
 	int	i;
 	double	temp;
@@ -37,7 +28,7 @@ int	calc_mandelbrot(t_fractol *frac, t_axis *axis, t_z *z, t_c *c)
 		z->r = (z->r * z->r) - (z->i * z->i) + c->r;
 		z->i = 2 * temp * z->i + c->i;
 		if ((z->r * z->r) + (z->i * z->i) > 4.0)
-			break; 
+			break;
 	}
 	return (i);
 }
