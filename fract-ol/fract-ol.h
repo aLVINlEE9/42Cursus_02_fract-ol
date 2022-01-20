@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 13:37:28 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:43:39 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef unsigned char un_char;
 typedef struct	s_img
 {
 	void		*img_ptr;
-	int			*data;
+	char		*data;
 
 	int			size_l;
 	int			bpp;
@@ -87,7 +87,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int	mandelbrot(t_fractol *frac, t_axis *axis, t_z *z, t_c *c);
 
-int	julia(t_fractol *frac);
+int julia(t_fractol *frac, t_axis *axis, t_z *z, t_c *c);
 
 void	free_exit_1(t_fractol *frac);
 void	free_exit_2(t_fractol *frac);

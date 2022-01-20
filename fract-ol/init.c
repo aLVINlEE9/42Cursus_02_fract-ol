@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 21:31:19 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 13:35:34 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:45:02 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init_img_struct(t_mlx *mlx, t_img *img)
 {
 	img->img_ptr = mlx_new_image(mlx->mlx_ptr, \
 	WIN_WIDTH, WIN_HEIGHT);
-	img->data = (int *)mlx_get_data_addr(img->img_ptr, \
+	img->data = (char *)mlx_get_data_addr(img->img_ptr, \
 	&img->bpp, &img->size_l, &img->endian);
 	return ;
 }

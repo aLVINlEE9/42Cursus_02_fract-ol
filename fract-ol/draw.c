@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:22:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 13:37:12 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:44:17 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,28 @@
 
 void	put_color(t_fractol *frac, t_img *img, int x, int y)
 {
-	frac->loop = frac->function(frac, frac->axis, frac->z, frac->c);
-	img->data[x * WIN_WIDTH + y];
+	t_clr *clr;
+	int offset;
+	int loop;
+	
+	clr = frac->clr;
+	loop = frac->function(frac, frac->axis, frac->z, frac->c);
+	if (loop == frac->loop_max)
+	{
+		clr->r = 0;
+		clr->g = 0;
+		clr->b = 0;
+	}
+	else
+	{
+		clr->r = (loop * 7) % 255;
+		clr->g = (142 + (loop * 2)) % 255;
+		clr->b = (255 - (loop * 8)) % 255;
+	}
+	offset = (x * (img->bpp / 8)) + (y * img->size_l);
+	img->data[offset] = clr->r;
+	img->data[offset + 1] = clr->g;
+	img->data[offset + 2] = clr->b;
 	return ;
 }
 

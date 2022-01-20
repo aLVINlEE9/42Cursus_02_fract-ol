@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 10:19:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/19 16:06:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:06:21 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int	main(int argc, char **argv)
 	frac = (t_fractol *)malloc(sizeof(t_fractol));
 	check_valid(argc, argv, frac);
 	fractol(frac);
+	free_exit_2(frac);
 	return (0);
 }
