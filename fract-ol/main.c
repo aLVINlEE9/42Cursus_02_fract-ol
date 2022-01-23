@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 10:19:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 14:06:21 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/23 19:59:45 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	fractol(t_fractol *frac)
 	draw(frac);
 	mlx_put_image_to_window(frac->mlx->mlx_ptr, frac->mlx->win, \
 	frac->img->img_ptr, 0, 0);
+	mlx_hook(frac->mlx->win, 6, (1L << 6), mouse_move, (void *)frac);
 	mlx_loop(frac->mlx->mlx_ptr);
 	return ;
 }

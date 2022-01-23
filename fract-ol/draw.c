@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:22:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 20:20:50 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/23 19:22:04 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	put_color(t_fractol *frac, t_img *img, int x, int y)
 
 	clr = frac->clr;
 	loop = frac->function(frac, frac->axis, frac->z, frac->c);
-	if (loop == frac->loop_max)
+	if (loop == frac->loop_max * frac->zoom)
 	{
 		clr->r = 0;
 		clr->g = 0;

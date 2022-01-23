@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/20 22:00:29 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/23 19:59:41 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,8 @@ void	init_ax_clr_struct(t_axis *axis, t_clr * clr);
 
 void	draw(t_fractol *frac);
 void	get_color(t_fractol *frac, t_img *img, int x, int y);
+
+int	mouse_scroll(int button, int x, int y, void *param);
+int mouse_move(int x, int y, void *param);
 
 #endif
