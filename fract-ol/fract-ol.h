@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/23 19:59:41 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/23 23:09:04 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 800
+
+# define SCROLL_UP	4
+# define SCROLL_DOWN	5
 
 typedef unsigned char un_char;
 
@@ -69,8 +72,8 @@ typedef struct	s_clr
 typedef struct	s_fractol
 {
 	int		(*function)(struct s_fractol *, t_axis *, t_z *, t_c *);
-	int		loop_max;
-	int		loop;
+	double		loop_max;
+	double		loop;
 	double		zoom;
 	double		center[2];
 	t_clr		*clr;
@@ -83,6 +86,7 @@ typedef struct	s_fractol
 
 void	input_cmp(char **argv, t_fractol *frac);
 void	check_valid(int argc, char **argv, t_fractol *frac);
+void	loop(t_fractol *frac);
 void	fractol(t_fractol *frac);
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -103,7 +107,9 @@ void	init_ax_clr_struct(t_axis *axis, t_clr * clr);
 void	draw(t_fractol *frac);
 void	get_color(t_fractol *frac, t_img *img, int x, int y);
 
-int	mouse_scroll(int button, int x, int y, void *param);
+int	mouse_scroll(int keycode, void *param);
 int mouse_move(int x, int y, void *param);
+
+int	listener(int keycode, void *param);
 
 #endif
