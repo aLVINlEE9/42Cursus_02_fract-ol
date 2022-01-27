@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 21:31:19 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 17:30:30 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/27 22:59:34 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@ void	init_ax_clr_struct(t_axis *axis, t_clr *clr)
 	clr->r = 0;
 	clr->g = 0;
 	clr->b = 0;
+	clr->r_set = 1;
+	clr->g_set = 1;
+	clr->b_set = 1;
 	return ;
 }

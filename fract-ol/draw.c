@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:22:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/23 19:22:04 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/27 22:24:01 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	put_color(t_fractol *frac, t_img *img, int x, int y)
 	}
 	else
 	{
-		clr->r = (loop * 7) % 255;
-		clr->g = (142 + (loop * 2)) % 255;
-		clr->b = (255 - (loop * 8)) % 255;
+		clr->r = (255 - loop * clr->r_set);
+		clr->g = (255 - loop * clr->g_set);
+		clr->b = (255 - loop * clr->b_set);
 	}
 	offset = (x * (img->bpp / 8)) + (y * img->size_l);
 	img->data[offset] = clr->r;

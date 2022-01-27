@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 18:32:34 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/27 23:04:57 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,22 @@
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 800
 
+# define KEY_ESC	53
+
 # define SCROLL_UP	4
 # define SCROLL_DOWN	5
 
+# define KEY_ONE	18
+# define KEY_TWO	19
+# define KEY_THREE	20
+
+# define KEY_LEFT	123
+# define KEY_RIGHT	124
+# define KEY_DOWN	125
+# define KEY_UP		126
+
+# define KEY_P	35
+# define KEY_M	46
 typedef unsigned char un_char;
 
 typedef struct	s_img
@@ -67,6 +80,9 @@ typedef struct	s_clr
 	un_char		r;
 	un_char		g;
 	un_char		b;
+	int		r_set;
+	int		g_set;
+	int		b_set;
 }				t_clr;
 
 typedef struct	s_fractol
@@ -109,6 +125,7 @@ void	init_ax_clr_struct(t_axis *axis, t_clr * clr);
 void	draw(t_fractol *frac);
 void	get_color(t_fractol *frac, t_img *img, int x, int y);
 
+void zoom(int x, int y, t_fractol *frac);
 int	mouse_scroll(int button, int x, int y, void *param);
 int mouse_move(int x, int y, void *param);
 
