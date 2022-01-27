@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 19:36:50 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 19:49:20 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/27 21:43:37 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int mouse_scroll(int button, int x, int y, void *param)
 	t_fractol *frac;
 
 	frac = (t_fractol *)param;
+	frac->last[2] = frac->zoom;
 	if (x < 0 || y < 0 || x > WIN_WIDTH || y > WIN_HEIGHT)
 		return (0);
 	if (button == SCROLL_UP)
@@ -29,12 +30,21 @@ int mouse_scroll(int button, int x, int y, void *param)
 	{
 		frac->zoom *= 0.9;
 	}
-	frac->loop_max *= frac->zoom;
-	printf("%d | (%d %d) [%f, %f] x%f ||\n", button, x, y, frac->curr[0], frac->curr[1], frac->zoom);
-	frac->last[0] = x;
-	frac->last[1] = y;
+	printf("%d | (%d %d) [%f, %f] x%f %f||\n", button, x, y, frac->curr[0], frac->curr[1], frac->zoom, frac->loop_max);
+	if (frac->last[2] != frac->zoom)
+	{
+		calc_axis(x, y, frac);
+		frac->last[0] = frac->curr[0];
+		frac->last[1] = frac->curr[1];
+		//frac->loop_max = 42 * frac->zoom;
+		loop(frac);
+	}
+	else
+	{
+		frac->last[0] = x;
+		frac->last[1] = y;
+	}
 	frac->last[2] = frac->zoom;
-	loop(frac);
 	return (0);
 }
 

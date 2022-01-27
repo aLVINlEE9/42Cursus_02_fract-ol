@@ -1,2 +1,2 @@
 all:
-	gcc -g -L./mlx -lmlx -framework OpenGL -framework AppKit *.c
+	gcc -g -O3 -L./mlx -lmlx -framework OpenGL -framework AppKit *.c
