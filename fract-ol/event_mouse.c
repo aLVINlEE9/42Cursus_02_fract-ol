@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 19:36:50 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 18:12:06 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/27 19:49:20 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int mouse_scroll(int button, int x, int y, void *param)
 	t_fractol *frac;
 
 	frac = (t_fractol *)param;
+	if (x < 0 || y < 0 || x > WIN_WIDTH || y > WIN_HEIGHT)
+		return (0);
 	if (button == SCROLL_UP)
 	{
 		frac->zoom *= 1.1;
@@ -28,9 +30,7 @@ int mouse_scroll(int button, int x, int y, void *param)
 		frac->zoom *= 0.9;
 	}
 	frac->loop_max *= frac->zoom;
-	frac->center[0] = ((frac->curr[0] - WIN_WIDTH / 2) * (4.0) / WIN_WIDTH);
-	frac->center[1] = ((WIN_HEIGHT / 2) - frac->curr[1]) * (4.0) / WIN_HEIGHT;
-	printf("%d | [%f, %f] x%f ||", button, frac->center[0], frac->center[1], frac->zoom);
+	printf("%d | (%d %d) [%f, %f] x%f ||\n", button, x, y, frac->curr[0], frac->curr[1], frac->zoom);
 	frac->last[0] = x;
 	frac->last[1] = y;
 	frac->last[2] = frac->zoom;
@@ -46,6 +46,12 @@ int mouse_move(int x, int y, void *param)
 	//frac->zoom = 2;
 	if (x < 0 || y < 0 || x > WIN_WIDTH || y > WIN_HEIGHT)
 		return (0);
+	//loop(frac);
+	return (0);
+}
+
+void calc_axis(int x, int y, t_fractol *frac)
+{
 	if (frac->zoom == 1.0)
 	{
 		frac->curr[0] = x;
@@ -53,23 +59,19 @@ int mouse_move(int x, int y, void *param)
 	}
 	else
 	{
-		if (x < 400 || y < 400)
-		{
-			frac->curr[0] = frac->last[0] - (x / frac->last[2]);
-			frac->curr[1] = frac->last[1] - (y / frac->last[2]);
-		}
-		else if(x > 400 || y > 400)
-		{
-			frac->curr[0] = frac->last[0] + (x / frac->last[2]);
-			frac->curr[1] = frac->last[1] + (y / frac->last[2]);
-		}
-		else
-		{
+		if (x < 400)
+			frac->curr[0] = frac->last[0] - ((WIN_WIDTH / 2 - x) / frac->last[2]);
+		else if (x == 400)
 			frac->curr[0] = frac->last[0];
+		else
+			frac->curr[0] = frac->last[0] + ((x - WIN_WIDTH / 2) / frac->last[2]);
+		if (y < 400)
+			frac->curr[1] = frac->last[1] - ((WIN_HEIGHT/ 2 - y) / frac->last[2]);
+		else if (y == 400)
 			frac->curr[1] = frac->last[1];
-		}
+		else
+			frac->curr[1] = frac->last[1] + ((y - WIN_HEIGHT / 2) / frac->last[2]);
 	}
-	printf("(%f, %f)\n", frac->curr[0], frac->curr[1]);
-	//loop(frac);
-	return (0);
+
+	//printf("[%d %f] [%d %f]\n", x, frac->curr[0], y, frac->curr[1]);
 }

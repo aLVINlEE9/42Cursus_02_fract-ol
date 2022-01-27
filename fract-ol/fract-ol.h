@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 16:54:18 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:32:34 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,7 @@ int mouse_move(int x, int y, void *param);
 
 int	listener(int keycode, void *param);
 int	key(int keycode, void *param);
+
+void calc_axis(int x, int y, t_fractol *frac);
 
 #endif
