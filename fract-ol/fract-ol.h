@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/23 23:09:04 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:54:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ typedef struct	s_fractol
 	double		loop;
 	double		zoom;
 	double		center[2];
+	double		curr[2];
+	double		last[3];
 	t_clr		*clr;
 	t_axis		*axis;
 	t_z			*z;
@@ -107,9 +109,10 @@ void	init_ax_clr_struct(t_axis *axis, t_clr * clr);
 void	draw(t_fractol *frac);
 void	get_color(t_fractol *frac, t_img *img, int x, int y);
 
-int	mouse_scroll(int keycode, void *param);
+int	mouse_scroll(int button, int x, int y, void *param);
 int mouse_move(int x, int y, void *param);
 
 int	listener(int keycode, void *param);
+int	key(int keycode, void *param);
 
 #endif
