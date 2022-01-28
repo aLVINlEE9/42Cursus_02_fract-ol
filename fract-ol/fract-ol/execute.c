@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:33:34 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 01:25:47 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:14:14 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	loop(t_data *data)
 	pxl_to_img(data);
 	mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win, \
 	data->img->img_ptr, 0, 0);
+	put_str(data);
 }
 
 void	execute(t_data *data)

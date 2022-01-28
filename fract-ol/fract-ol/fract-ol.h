@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 01:54:22 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:13:14 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void	check_valid(int argc, char **argv, t_data *data);
 void	loop(t_data *data);
 void	execute(t_data *data);
 
+void	put_str(t_data *data);
 int	mandelbrot(t_data *data, t_pxl *pxl, int x, int y);
 int	julia(t_data *data, t_pxl *pxl, int x, int y);
 
@@ -150,5 +151,7 @@ void	error_detected(int error, t_data *data);
 void calc_axis(int x, int y, t_pxl *pxl);
 void	put_color(t_data *data, t_img *img, int x, int y);
 void	pxl_to_img(t_data *data);
+
+char	*ft_itoa(int n);
 
 #endif

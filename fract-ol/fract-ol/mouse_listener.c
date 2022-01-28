@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 01:12:37 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:24:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data)
 	pxl->last[0] = pxl->curr[0];
 	pxl->last[1] = pxl->curr[1];
 	pxl->last_zoom = pxl->curr_zoom;
-	if (data->loop_mul < pxl->curr_zoom / 1000)
+	if (data->loop_mul < pxl->curr_zoom / 100)
 	{
 		data->loop_mul++;
 		data->loop_max = 42 * (data->loop_mul + 1);
 	}
-
+	return ;
 }
 
 int mouse_scroll(int button, int x, int y, void *param)
@@ -41,6 +41,5 @@ int mouse_scroll(int button, int x, int y, void *param)
 		return (0);
 	get_zoomed_center(x, y, data->pxl, data);
 	loop(data);
-	//printf("%d ", button);
 	return (0);
 }

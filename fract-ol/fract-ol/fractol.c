@@ -6,11 +6,23 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:28:52 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 01:44:17 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:18:40 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
+
+void	put_str(t_data *data)
+{
+	mlx_string_put(data->mlx->mlx_ptr, data->mlx->win, 0, 50, 16777215,
+			"zoom : x");
+	mlx_string_put(data->mlx->mlx_ptr, data->mlx->win, 60, 50, 16777215,
+			ft_itoa((int)data->pxl->last_zoom));
+	mlx_string_put(data->mlx->mlx_ptr, data->mlx->win, 0, 100, 16777215,
+			"iteration : ");
+	mlx_string_put(data->mlx->mlx_ptr, data->mlx->win, 80, 100, 16777215,
+			ft_itoa((int)data->loop_max));
+}
 
 int	mandelbrot(t_data *data, t_pxl *pxl, int x, int y)
 {
