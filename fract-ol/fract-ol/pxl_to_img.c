@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:14:53 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 20:26:45 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 01:13:54 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,27 @@ void calc_axis(int x, int y, t_pxl *pxl)
 
 void	put_color(t_data *data, t_img *img, int x, int y)
 {
-	t_rgb	*rgb;
 	int		offset;
 	int		loop;
 
-	rgb = (t_rgb *)data->rgb;
 	loop = data->function(data, data->pxl, x, y);
 	if (loop == data->loop_max)
 	{
-		rgb->r = 0;
-		rgb->g = 0;
-		rgb->b = 0;
+		data->rgb->r = 0;
+		data->rgb->g = 0;
+		data->rgb->b = 0;
 	}
 	else
 	{
-		rgb->r = (255 - loop * rgb->set_r);
-		rgb->g = (255 - loop * rgb->set_g);
-		rgb->b = (255 - loop * rgb->set_b);
+		data->rgb->r = (255 - loop * data->rgb->set_r);
+		data->rgb->g = (255 - loop * data->rgb->set_g);
+		data->rgb->b = (255 - loop * data->rgb->set_b);
 	}
 	offset = (x * (img->bpp / 8)) + (y * img->size_l);
-	img->data[offset] = rgb->r;
-	img->data[offset + 1] = rgb->g;
-	img->data[offset + 2] = rgb->b;
+	img->data[offset] = data->rgb->r;
+	img->data[offset + 1] = data->rgb->g;
+	img->data[offset + 2] = data->rgb->b;
+	//printf("1\n");
 	return ;
 }
 

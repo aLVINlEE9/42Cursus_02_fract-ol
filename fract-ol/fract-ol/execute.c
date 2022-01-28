@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:33:34 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 20:10:38 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 00:21:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,18 @@
 
 void	loop(t_data *data)
 {
-	t_mlx	*mlx;
-	t_img	*img;
-
-	mlx = (t_mlx *)data->mlx;
-	img = (t_img *)data->img;
-	mlx_clear_window(mlx->mlx_ptr, mlx->win);
+	mlx_clear_window(data->mlx->mlx_ptr, data->mlx->win);
 	pxl_to_img(data);
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, 0, 0);
+	mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win, \
+	data->img->img_ptr, 0, 0);
 }
 
 void	execute(t_data *data)
 {
-	t_mlx	*mlx;
-
-	mlx = (t_mlx *)data->mlx;
 	init(data);
 	loop(data);
-	mlx_key_hook(mlx->win, listener, (void *)data);
-	mlx_hook(mlx->win, 4, (1L << 2), mouse_scroll, (void *)data);
-	mlx_loop(mlx->mlx_ptr);
+	mlx_key_hook(data->mlx->win, listener, (void *)data);
+	mlx_hook(data->mlx->win, 4, (1L << 2), mouse_scroll, (void *)data);
+	printf("[%f %f]\n", data->pxl->curr[0], data->pxl->curr[1]);
+	mlx_loop(data->mlx->mlx_ptr);
 }

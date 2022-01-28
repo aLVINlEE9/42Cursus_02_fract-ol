@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 20:31:17 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 00:58:20 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRACTOL_H
 
 #include "./mlx/mlx.h"
+#include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -26,14 +27,22 @@
 #define RGB_MALLOC_ERROR -6
 #define PXL_MALLOC_ERROR -7
 #define ZC_MALLOC_ERROR -8
+#define AXIS_MALLOC_ERROR -9
 
 # define SCROLL_UP	4
 # define SCROLL_DOWN	5
+# define KEY_ESC		53
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 800
 
 typedef unsigned char un_char;
+
+typedef struct	s_axis
+{
+	int			x;
+	int			y;
+}				t_axis;
 
 typedef struct	s_c
 {
@@ -92,6 +101,7 @@ typedef struct	s_data
 	t_pxl		*pxl;
 	t_z			*z;
 	t_c			*c;
+	t_axis		*axis;
 }				t_data;
 
 void	check_valid(int argc, char **argv, t_data *data);
@@ -113,6 +123,7 @@ void	init_img(t_data *data);
 void	init(t_data *data);
 
 void	init_zc(t_data *data);
+void	init_axis(t_data *data);
 
 int	listener(int keycode, void *param);
 

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 19:20:56 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 01:12:37 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,18 @@ void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data)
 int mouse_scroll(int button, int x, int y, void *param)
 {
 	t_data	*data;
-	t_pxl	*pxl;
 
 	data = (t_data *)param;
-	pxl = (t_pxl *)data->pxl;
 	if (x < 0 || y < 0 || x > WIN_WIDTH || y > WIN_HEIGHT)
 		return (0);
 	if (button == SCROLL_UP)
-		pxl->curr_zoom *= 1.1;
+		data->pxl->curr_zoom *= 1.1;
 	else if (button == SCROLL_DOWN)
-		pxl->curr_zoom *= 0.9;
+		data->pxl->curr_zoom *= 0.9;
 	else
 		return (0);
-	get_zoomed_center(x, y, pxl, data);
+	get_zoomed_center(x, y, data->pxl, data);
 	loop(data);
+	//printf("%d ", button);
 	return (0);
 }
