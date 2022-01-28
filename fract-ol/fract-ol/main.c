@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 10:19:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 16:33:28 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/28 16:35:02 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 
 	data = (t_data *)malloc(sizeof(t_data));
 	check_valid(argc, argv, data);
-	execute(frac);
-	free_exit_2(frac);
+	execute(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:11:33 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 16:31:48 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/28 17:11:21 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_valid(int argc, char **argv, t_data *data)
 {
 	if (data == NULL)
-		error_detected(MALLOC_ERROR, data);
+		error_detected(DATA_MALLOC_ERROR, data);
 	if (argc != 2)
 		error_detected(MANY_PARAM_ERROR, data);
 	else
