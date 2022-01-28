@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 00:58:20 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 01:54:22 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,20 @@
 
 # define SCROLL_UP	4
 # define SCROLL_DOWN	5
+
 # define KEY_ESC		53
+
+# define KEY_ONE	18
+# define KEY_TWO	19
+# define KEY_THREE	20
+
+# define KEY_LEFT	123
+# define KEY_RIGHT	124
+# define KEY_DOWN	125
+# define KEY_UP		126
+
+# define KEY_P	35
+# define KEY_M	46
 
 #define WIN_WIDTH 800
 #define WIN_HEIGHT 800
