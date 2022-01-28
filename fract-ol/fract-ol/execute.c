@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:33:34 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 17:49:39 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:10:38 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	loop(t_data *data)
 	mlx = (t_mlx *)data->mlx;
 	img = (t_img *)data->img;
 	mlx_clear_window(mlx->mlx_ptr, mlx->win);
-	plx_to_img(data);
+	pxl_to_img(data);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, 0, 0);
 }
 

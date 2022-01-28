@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:14:53 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 18:38:42 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:26:45 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,50 +28,44 @@ void calc_axis(int x, int y, t_pxl *pxl)
 		pxl->curr[1] = pxl->last[1] + ((y - WIN_HEIGHT / 2) / pxl->last_zoom);
 }
 
-void	put_color(t_fractol *frac, t_img *img, int x, int y)
+void	put_color(t_data *data, t_img *img, int x, int y)
 {
-	t_clr	*clr;
+	t_rgb	*rgb;
 	int		offset;
 	int		loop;
 
-	clr = frac->clr;
-	loop = frac->function(frac, frac->axis, frac->z, frac->c);
-	if (loop == frac->loop_max * frac->zoom)
+	rgb = (t_rgb *)data->rgb;
+	loop = data->function(data, data->pxl, x, y);
+	if (loop == data->loop_max)
 	{
-		clr->r = 0;
-		clr->g = 0;
-		clr->b = 0;
+		rgb->r = 0;
+		rgb->g = 0;
+		rgb->b = 0;
 	}
 	else
 	{
-		clr->r = (255 - loop * clr->r_set);
-		clr->g = (255 - loop * clr->g_set);
-		clr->b = (255 - loop * clr->b_set);
+		rgb->r = (255 - loop * rgb->set_r);
+		rgb->g = (255 - loop * rgb->set_g);
+		rgb->b = (255 - loop * rgb->set_b);
 	}
 	offset = (x * (img->bpp / 8)) + (y * img->size_l);
-	img->data[offset] = clr->r;
-	img->data[offset + 1] = clr->g;
-	img->data[offset + 2] = clr->b;
+	img->data[offset] = rgb->r;
+	img->data[offset + 1] = rgb->g;
+	img->data[offset + 2] = rgb->b;
 	return ;
 }
 
-void	pix_to_img(t_data *data)
+void	pxl_to_img(t_data *data)
 {
 	int		count_h;
 	int		count_w;
-	t_axis	*axis;
 
-	axis = frac->axis;
 	count_h = -1;
 	while (++count_h < WIN_HEIGHT)
 	{
 		count_w = -1;
 		while (++count_w < WIN_WIDTH)
-		{
-			axis->x = count_w;
-			axis->y = count_h;
-			put_color(frac, frac->img, count_w, count_h);
-		}
+			put_color(data, data->img, count_w, count_h);
 	}
 	return ;
 }

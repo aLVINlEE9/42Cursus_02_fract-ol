@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:47:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 18:49:02 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:12:34 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
+
 
 void	init_pxl(t_data *data)
 {
@@ -78,9 +79,14 @@ void	init(t_data *data)
 	data->img = (t_img *)malloc(sizeof(t_img));
 	data->rgb = (t_rgb *)malloc(sizeof(t_rgb));
 	data->pxl = (t_pxl *)malloc(sizeof(t_pxl));
+	data->z = (t_z *)malloc(sizeof(t_z));
+	data->c = (t_c *)malloc(sizeof(t_c));
+	data->loop_max = 42;
+	data->loop_mul = 0;
 	init_mlx(data);
 	init_img(data);
 	init_rgb(data);
-	init_plx(data);
+	init_pxl(data);
+	init_zc(data);
 	return ;
 }
