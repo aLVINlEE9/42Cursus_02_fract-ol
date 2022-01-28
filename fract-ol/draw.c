@@ -6,11 +6,26 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:22:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 22:24:01 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/28 15:56:54 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
+
+void	print_str(t_fractol *frac)
+{
+	mlx_string_put(frac->mlx->mlx_ptr, frac->mlx->win, 0, 0, 16777215,
+			"좌표 :");
+	mlx_string_put(frac->mlx->mlx_ptr, frac->mlx->win, 200, 0, 16777215,
+			ft_itoa((int)frac->curr[0]));
+	mlx_string_put(frac->mlx->mlx_ptr, frac->mlx->win, 300, 0, 16777215,
+			ft_itoa((int)frac->curr[1]));
+	mlx_string_put(frac->mlx->mlx_ptr, frac->mlx->win, 0, 20, 16777215,
+			"배율 : x");
+	mlx_string_put(frac->mlx->mlx_ptr, frac->mlx->win, 0, 20, 16777215,
+			ft_itoa((int)frac->zoom));
+			
+}
 
 void	put_color(t_fractol *frac, t_img *img, int x, int y)
 {

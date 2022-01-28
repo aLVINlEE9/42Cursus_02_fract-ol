@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:34:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 23:04:57 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/28 15:57:45 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct	s_fractol
 	int		(*function)(struct s_fractol *, t_axis *, t_z *, t_c *);
 	double		loop_max;
 	double		loop;
+	int		loop_mul;
 	double		zoom;
 	double		center[2];
 	double		curr[2];
@@ -109,6 +110,11 @@ void	fractol(t_fractol *frac);
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
+char	*ft_itoa(int n);
+static size_t	ft_num_size(long n);
+static char	*ft_malloc(size_t size);
+static char	*ft_putstr(char *ret, long num, size_t idx, size_t size);
+
 int	mandelbrot(t_fractol *frac, t_axis *axis, t_z *z, t_c *c);
 
 int julia(t_fractol *frac, t_axis *axis, t_z *z, t_c *c);
@@ -122,6 +128,7 @@ void	init_img_struct(t_mlx *mlx, t_img *img);
 void	init_zc_struct(t_z *z, t_c *c);
 void	init_ax_clr_struct(t_axis *axis, t_clr * clr);
 
+void	print_str(t_fractol *frac);
 void	draw(t_fractol *frac);
 void	get_color(t_fractol *frac, t_img *img, int x, int y);
 
