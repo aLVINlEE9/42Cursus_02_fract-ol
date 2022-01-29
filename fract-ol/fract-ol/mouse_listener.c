@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 14:00:53 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:26:06 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data)
 {
@@ -26,7 +26,7 @@ void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data)
 	return ;
 }
 
-int mouse_scroll(int button, int x, int y, void *param)
+int	mouse_scroll(int button, int x, int y, void *param)
 {
 	t_data	*data;
 

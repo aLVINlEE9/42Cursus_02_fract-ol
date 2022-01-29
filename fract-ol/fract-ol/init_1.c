@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:47:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 00:47:34 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:23:51 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 void	init_pxl(t_data *data)
 {
@@ -52,7 +52,8 @@ void	init_img(t_data *data)
 {
 	if (data->img == NULL)
 		error_detected(IMG_MALLOC_ERROR, data);
-	data->img->img_ptr = mlx_new_image(data->mlx->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
+	data->img->img_ptr = mlx_new_image(data->mlx->mlx_ptr, WIN_WIDTH, \
+	WIN_HEIGHT);
 	data->img->data = (char *)mlx_get_data_addr(data->img->img_ptr, \
 	&data->img->bpp, &data->img->size_l, &data->img->endian);
 	return ;

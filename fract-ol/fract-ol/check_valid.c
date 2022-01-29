@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:11:33 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 15:24:17 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:23:01 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 void	check_valid(int argc, char **argv, t_data *data)
 {

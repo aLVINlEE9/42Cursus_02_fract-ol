@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:26:26 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 16:14:46 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:23:15 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

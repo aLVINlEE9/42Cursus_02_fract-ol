@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 19:57:09 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 00:48:32 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:24:04 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 void	init_zc(t_data *data)
 {

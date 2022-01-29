@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 19:16:39 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 15:40:29 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:23:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 static size_t	ft_num_size(long n)
 {

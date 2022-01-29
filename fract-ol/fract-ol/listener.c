@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:05 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 16:59:19 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:25:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 void	key_1(int keycode, t_data *data)
 {
@@ -26,7 +26,7 @@ void	key_2(int keycode, t_data *data)
 {
 	double		move;
 
-	move = 10 / (data->pxl->last_zoom/ 10);
+	move = 10 / (data->pxl->last_zoom / 10);
 	if (keycode == KEY_UP)
 		data->pxl->last[1] += move;
 	else if (keycode == KEY_DOWN)
