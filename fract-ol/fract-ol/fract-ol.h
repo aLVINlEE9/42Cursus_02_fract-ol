@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 02:13:14 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 15:23:46 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void	execute(t_data *data);
 void	put_str(t_data *data);
 int	mandelbrot(t_data *data, t_pxl *pxl, int x, int y);
 int	julia(t_data *data, t_pxl *pxl, int x, int y);
+int		burningship(t_data *data, t_pxl *pxl, int x, int y);
 
 void	ft_putstr_fd(char *s, int fd);
 

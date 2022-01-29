@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:33:34 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 02:14:14 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 14:00:34 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ void	execute(t_data *data)
 	loop(data);
 	mlx_key_hook(data->mlx->win, listener, (void *)data);
 	mlx_hook(data->mlx->win, 4, (1L << 2), mouse_scroll, (void *)data);
-	//printf("[%f %f]\n", data->pxl->curr[0], data->pxl->curr[1]);
 	mlx_loop(data->mlx->mlx_ptr);
 }

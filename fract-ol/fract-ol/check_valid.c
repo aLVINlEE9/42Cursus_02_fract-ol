@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:11:33 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/28 23:41:56 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 15:24:17 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	check_valid(int argc, char **argv, t_data *data)
 			data->function = mandelbrot;
 		else if (ft_strncmp(argv[1], "julia", 5) == 0)
 			data->function = julia;
+		else if (ft_strncmp(argv[1], "burningship", 11) == 0)
+			data->function = burningship;
 		else
 			error_detected(INVALID_PARAM_ERROR, data);
 	}

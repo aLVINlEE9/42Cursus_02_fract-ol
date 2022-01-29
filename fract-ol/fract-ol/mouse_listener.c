@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 02:24:00 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 14:00:53 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data)
 	pxl->last[0] = pxl->curr[0];
 	pxl->last[1] = pxl->curr[1];
 	pxl->last_zoom = pxl->curr_zoom;
-	if (data->loop_mul < pxl->curr_zoom / 100)
+	if (data->loop_mul < pxl->curr_zoom / 300)
 	{
 		data->loop_mul++;
 		data->loop_max = 42 * (data->loop_mul + 1);

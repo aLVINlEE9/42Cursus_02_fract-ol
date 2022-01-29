@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:05 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 02:24:35 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 14:01:36 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	key_4(int keycode, t_data *data)
 		data->pxl->last_zoom *= 1.1;
 	else if (keycode == KEY_M)
 		data->pxl->last_zoom *= 0.9;
-	if (data->loop_mul < data->pxl->last_zoom / 100)
+	if (data->loop_mul < data->pxl->last_zoom / 300)
 	{
 		data->loop_mul++;
 		data->loop_max = 42 * (data->loop_mul + 1);
@@ -71,7 +71,6 @@ int	listener(int keycode, void *param)
 	key_2(keycode, data);
 	key_3(keycode, data);
 	key_4(keycode, data);
-	printf("%d ", keycode);
 	loop(data);
 	return (0);
 }
