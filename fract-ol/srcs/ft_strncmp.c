@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_2.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 19:57:09 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 21:54:01 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/10 16:22:40 by seungsle          #+#    #+#             */
+/*   Updated: 2022/01/30 01:49:49 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
-void	init_zc(t_data *data)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	data->z.r = 0;
-	data->z.i = 0;
-	data->c.r = 0;
-	data->c.i = 0;
-	return ;
-}
+	size_t			i;
+	unsigned char	*s1_u;
+	unsigned char	*s2_u;
 
-void	init_axis(t_data *data)
-{
-	data->axis.x = 0;
-	data->axis.y = 0;
+	i = 0;
+	s1_u = (unsigned char *)s1;
+	s2_u = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (*s1_u && *s2_u && i++ < n - 1)
+	{
+		if (*s1_u != *s2_u)
+		{
+			return (*s1_u - *s2_u);
+		}
+		s1_u++;
+		s2_u++;
+	}
+	return (*s1_u - *s2_u);
 }

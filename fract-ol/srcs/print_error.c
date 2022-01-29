@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:00 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 23:08:42 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/30 01:50:10 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void	error_param(int error, t_data *data)
 {

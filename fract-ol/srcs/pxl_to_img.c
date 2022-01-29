@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:14:53 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 23:07:23 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/30 01:50:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void	calc_axis(int x, int y, t_pxl *pxl)
 {

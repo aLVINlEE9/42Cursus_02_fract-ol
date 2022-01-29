@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   init_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 12:26:26 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 17:23:15 by seungsle         ###   ########.fr       */
+/*   Created: 2022/01/28 19:57:09 by seungsle          #+#    #+#             */
+/*   Updated: 2022/01/30 01:49:56 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	init_zc(t_data *data)
 {
-	if (!s)
-		return ;
-	while (*s)
-	{
-		write(fd, s, 1);
-		s++;
-	}
+	data->z.r = 0;
+	data->z.i = 0;
+	data->c.r = 0;
+	data->c.i = 0;
 	return ;
+}
+
+void	init_axis(t_data *data)
+{
+	data->axis.x = 0;
+	data->axis.y = 0;
 }

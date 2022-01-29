@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 16:22:40 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 17:23:18 by seungsle         ###   ########.fr       */
+/*   Created: 2022/01/18 10:19:20 by seungsle          #+#    #+#             */
+/*   Updated: 2022/01/30 01:50:03 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	main(int argc, char **argv)
 {
-	size_t			i;
-	unsigned char	*s1_u;
-	unsigned char	*s2_u;
+	t_data	data;
 
-	i = 0;
-	s1_u = (unsigned char *)s1;
-	s2_u = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
-	while (*s1_u && *s2_u && i++ < n - 1)
-	{
-		if (*s1_u != *s2_u)
-		{
-			return (*s1_u - *s2_u);
-		}
-		s1_u++;
-		s2_u++;
-	}
-	return (*s1_u - *s2_u);
+	check_valid(argc, argv, &data);
+	execute(&data);
+	return (0);
 }

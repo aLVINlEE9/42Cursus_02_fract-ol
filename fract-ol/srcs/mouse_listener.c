@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 21:48:40 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/30 01:50:07 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data)
 {

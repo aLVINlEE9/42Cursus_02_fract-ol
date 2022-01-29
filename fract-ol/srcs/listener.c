@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:05 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 21:47:35 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/30 01:50:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 void	key_1(int keycode, t_data *data)
 {
