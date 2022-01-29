@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:14:53 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 01:45:35 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:58:24 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void calc_axis(int x, int y, t_pxl *pxl)
 	else
 		pxl->curr[0] = pxl->last[0] + ((x - WIN_WIDTH / 2) / pxl->last_zoom);
 	if (y < 400)
-		pxl->curr[1] = pxl->last[1] - ((WIN_HEIGHT/ 2 - y) / pxl->last_zoom);
+		pxl->curr[1] = pxl->last[1] + ((WIN_HEIGHT/ 2 - y) / pxl->last_zoom);
 	else if (y == 400)
 		pxl->curr[1] = pxl->last[1];
 	else
-		pxl->curr[1] = pxl->last[1] + ((y - WIN_HEIGHT / 2) / pxl->last_zoom);
+		pxl->curr[1] = pxl->last[1] - ((y - WIN_HEIGHT / 2) / pxl->last_zoom);
 }
 
 void	put_color(t_data *data, t_img *img, int x, int y)

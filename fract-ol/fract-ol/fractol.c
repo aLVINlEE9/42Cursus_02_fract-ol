@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:28:52 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 16:03:45 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:50:41 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ int		burningship(t_data *data, t_pxl *pxl, int x, int y)
 	while (++i < data->loop_max)
 	{
 		temp = data->z->r;
-		data->z->r = ft_abs(data->z->r * data->z->r - data->z->i * data->z->i) + data->c->r;
+		data->z->r = (data->z->r * data->z->r) - (data->z->i * data->z->i) \
+		 + data->c->r;
 		data->z->i = 2 * ft_abs(temp * data->z->i) + data->c->i;
 		if ((data->z->r * data->z->r) + (data->z->i * data->z->i) > 4)
 			break;
