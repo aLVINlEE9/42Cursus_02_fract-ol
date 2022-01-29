@@ -5,73 +5,72 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 22:45:08 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/27 23:10:23 by seungsle         ###   ########.fr       */
+/*   Created: 2022/01/28 17:50:05 by seungsle          #+#    #+#             */
+/*   Updated: 2022/01/29 17:25:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
-#include <stdio.h>
+#include "fractol.h"
 
-int	key_1(int keycode, void *param)
+void	key_1(int keycode, t_data *data)
 {
-	t_fractol *frac;
-
-	frac = (t_fractol *)param;
 	if (keycode == KEY_ESC)
+	{
+		mlx_destroy_window(data->mlx->mlx_ptr, data->mlx->win);
+		mlx_destroy_image(data->mlx->mlx_ptr, data->img->img_ptr);
 		exit(0);
-	else if (keycode == KEY_ONE)
-		frac->clr->r_set += 5;
-	else if (keycode == KEY_TWO)
-		frac->clr->g_set += 5;
-	else if (keycode == KEY_THREE)
-		frac->clr->b_set += 5;
-	printf("%d | ", keycode);
-	return (0);
+	}
 }
 
-int key_2(int keycode, void *param)
+void	key_2(int keycode, t_data *data)
 {
-	t_fractol *frac;
+	double		move;
 
-	frac = (t_fractol *)param;
+	move = 10 / (data->pxl->last_zoom / 10);
 	if (keycode == KEY_UP)
-		frac->last[1] -= 10;
+		data->pxl->last[1] += move;
 	else if (keycode == KEY_DOWN)
-		frac->last[1] += 10;
+		data->pxl->last[1] -= move;
 	else if (keycode == KEY_RIGHT)
-		frac->last[0] += 10;
+		data->pxl->last[0] += move;
 	else if (keycode == KEY_LEFT)
-		frac->last[0] -= 10;
-	return (0);
+		data->pxl->last[0] -= move;
+	return ;
 }
 
-int key_3(int keycode, void *param)
+void	key_3(int keycode, t_data *data)
 {
-	t_fractol *frac;
+	if (keycode == KEY_ONE)
+		data->rgb->set_r += 5;
+	else if (keycode == KEY_TWO)
+		data->rgb->set_g += 5;
+	else if (keycode == KEY_THREE)
+		data->rgb->set_b += 5;
+	return ;
+}
 
-	frac = (t_fractol *)param;
+void	key_4(int keycode, t_data *data)
+{
 	if (keycode == KEY_P)
-	{
-		frac->zoom *= 1.1;
-		zoom(WIN_WIDTH/ 2, WIN_HEIGHT/ 2, frac);
-	}
+		data->pxl->last_zoom *= 1.1;
 	else if (keycode == KEY_M)
+		data->pxl->last_zoom *= 0.9;
+	if (data->loop_mul < data->pxl->last_zoom / 300)
 	{
-		frac->zoom *= 0.9;
-		zoom(WIN_WIDTH/ 2, WIN_HEIGHT/ 2, frac);
+		data->loop_mul++;
+		data->loop_max = 42 * (data->loop_mul + 1);
 	}
-	return (0);
 }
 
 int	listener(int keycode, void *param)
 {
-	t_fractol *frac;
+	t_data	*data;
 
-	frac = (t_fractol *)param;
-	key_1(keycode, param);
-	key_2(keycode, param);
-	key_3(keycode, param);
-	loop(frac);
+	data = (t_data *)param;
+	key_1(keycode, data);
+	key_2(keycode, data);
+	key_3(keycode, data);
+	key_4(keycode, data);
+	loop(data);
 	return (0);
 }

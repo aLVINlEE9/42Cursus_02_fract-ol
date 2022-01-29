@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:22:40 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/18 17:52:15 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:23:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
