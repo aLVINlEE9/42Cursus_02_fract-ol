@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:14:53 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 17:27:07 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 23:07:23 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	put_color(t_data *data, t_img *img, int x, int y)
 	int		offset;
 	int		loop;
 
-	rgb = (t_rgb *)data->rgb;
-	loop = data->function(data, data->pxl, x, y);
+	rgb = (t_rgb *)&(data->rgb);
+	loop = data->function(data, &(data->pxl), x, y);
 	if (loop == data->loop_max)
 	{
 		rgb->r = 0;
@@ -61,11 +61,18 @@ void	pxl_to_img(t_data *data)
 	int		count_w;
 
 	count_h = -1;
-	while (++count_h < WIN_HEIGHT)
+	data->img.data = (char *)mlx_get_data_addr(data->img.img_ptr, \
+	&data->img.bpp, &data->img.size_l, &data->img.endian);
+	if (data->img.data)
 	{
-		count_w = -1;
-		while (++count_w < WIN_WIDTH)
-			put_color(data, data->img, count_w, count_h);
+		while (++count_h < WIN_HEIGHT)
+		{
+			count_w = -1;
+			while (++count_w < WIN_WIDTH)
+				put_color(data, &(data->img), count_w, count_h);
+		}
 	}
+	else
+		error_detected(MLX_GET_DATA_ADDR_ERROR, data);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 17:26:06 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 21:48:40 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int	mouse_scroll(int button, int x, int y, void *param)
 	if (x < 0 || y < 0 || x > WIN_WIDTH || y > WIN_HEIGHT)
 		return (0);
 	if (button == SCROLL_UP)
-		data->pxl->curr_zoom *= 1.1;
+		data->pxl.curr_zoom *= 1.1;
 	else if (button == SCROLL_DOWN)
-		data->pxl->curr_zoom *= 0.9;
+		data->pxl.curr_zoom *= 0.9;
 	else
 		return (0);
-	get_zoomed_center(x, y, data->pxl, data);
+	get_zoomed_center(x, y, &(data->pxl), data);
 	loop(data);
 	return (0);
 }

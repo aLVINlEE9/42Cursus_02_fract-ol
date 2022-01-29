@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:00 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 17:26:21 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 23:08:42 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,48 +20,17 @@ void	error_param(int error, t_data *data)
 		ft_putstr_fd("Error : invalid parameters", 1);
 }
 
-void	error_malloc_1(int error, t_data *data)
-{
-	if (error == MLX_MALLOC_ERROR)
-		return (ft_putstr_fd("Error : mlx malloc failed", 1));
-	free(data->mlx);
-	if (error == IMG_MALLOC_ERROR)
-		return (ft_putstr_fd("Error : img malloc failed", 1));
-	free(data->img);
-	if (data->rgb == NULL && error == RGB_MALLOC_ERROR)
-		return (ft_putstr_fd("Error : rgb malloc failed", 1));
-	free(data->rgb);
-	if (error == PXL_MALLOC_ERROR)
-		return (ft_putstr_fd("Error : rgb malloc failed", 1));
-	return ;
-}
-
-void	error_malloc_2(int error, t_data *data)
-{
-	free(data->pxl);
-	if (data->c == NULL && data->z == NULL && error == ZC_MALLOC_ERROR)
-		return ;
-	else if (data->c == NULL && error == ZC_MALLOC_ERROR)
-		return (free(data->z));
-	else if (data->z == NULL && error == ZC_MALLOC_ERROR)
-		return (free(data->c));
-	free(data->z);
-	free(data->c);
-	if (error == AXIS_MALLOC_ERROR)
-		return ;
-	return ;
-}
-
 void	error_detected(int error, t_data *data)
 {
-	if (error == DATA_MALLOC_ERROR)
-		ft_putstr_fd("Error : data malloc failed", 1);
+	if (error == MLX_INIT_ERROR)
+		ft_putstr_fd("Error : mlx_init() failed", 1);
+	else if (error == MLX_NEW_WINDOW_ERROR)
+		ft_putstr_fd("Error : mlx_new_window() failed", 1);
+	else if (error == MLX_NEW_IMAGE_ERROR)
+		ft_putstr_fd("Error : mlx_new_image() failed", 1);
+	else if (error == MLX_GET_DATA_ADDR_ERROR)
+		ft_putstr_fd("Error : mlx_get_data_addr() failed", 1);
 	else if (error == MANY_PARAM_ERROR || error == INVALID_PARAM_ERROR)
 		error_param(error, data);
-	else if (error < -3 && error > -8)
-		error_malloc_1(error, data);
-	else if (error < -7 && error > -10)
-		error_malloc_2(error, data);
-	free(data);
 	exit(1);
 }

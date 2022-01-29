@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 17:18:39 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/29 23:50:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define DATA_MALLOC_ERROR		-1
-# define MANY_PARAM_ERROR		-2
-# define INVALID_PARAM_ERROR	-3
-# define MLX_MALLOC_ERROR		-4
-# define IMG_MALLOC_ERROR		-5
-# define RGB_MALLOC_ERROR		-6
-# define PXL_MALLOC_ERROR		-7
-# define ZC_MALLOC_ERROR		-8
-# define AXIS_MALLOC_ERROR		-9
+# define MLX_INIT_ERROR			-1
+# define MLX_NEW_WINDOW_ERROR	-2
+# define MLX_NEW_IMAGE_ERROR	-3
+# define MANY_PARAM_ERROR		-4
+# define INVALID_PARAM_ERROR	-5
+# define MLX_GET_DATA_ADDR_ERROR	-6
 
 # define SCROLL_UP				4
 # define SCROLL_DOWN			5
@@ -107,13 +104,15 @@ typedef struct s_data
 	int			(*function)(struct s_data *, t_pxl *, int, int);
 	int			loop_max;
 	int			loop_mul;
-	t_img		*img;
-	t_mlx		*mlx;
-	t_rgb		*rgb;
-	t_pxl		*pxl;
-	t_z			*z;
-	t_c			*c;
-	t_axis		*axis;
+	char		*info_str1;
+	char		*info_str2;
+	t_img		img;
+	t_mlx		mlx;
+	t_rgb		rgb;
+	t_pxl		pxl;
+	t_z			z;
+	t_c			c;
+	t_axis		axis;
 }				t_data;
 
 void	check_valid(int argc, char **argv, t_data *data);
