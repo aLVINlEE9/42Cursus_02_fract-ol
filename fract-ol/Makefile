@@ -6,7 +6,7 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 00:04:04 by seungsle          #+#    #+#              #
-#    Updated: 2022/02/03 08:46:01 by seungsle         ###   ########.fr        #
+#    Updated: 2022/02/03 08:51:37 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,3 +43,5 @@ fclean : clean
 	rm -f $(TARGET)
 
 re : fclean all
+
+.PHONY: all clean fclean re
