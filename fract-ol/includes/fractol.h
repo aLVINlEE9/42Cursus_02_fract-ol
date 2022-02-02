@@ -6,14 +6,14 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/29 23:50:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/03 08:24:11 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "./mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>

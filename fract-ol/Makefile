@@ -6,53 +6,42 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 00:04:04 by seungsle          #+#    #+#              #
-#    Updated: 2022/01/30 01:59:43 by seungsle         ###   ########.fr        #
+#    Updated: 2022/02/03 08:23:10 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	fractol
+CC		= gcc -O3
+CFLAG	= -Werror -Wall -Wextra
+FFLAG	= -framework OpenGL -framework AppKit
+TARGET	= fractol
+SRCS 	=	srcs/check_valid.c		\
+			srcs/fractol.c			\
+			srcs/ft_putstr_fd.c		\
+			srcs/init_1.c			\
+			srcs/listener.c			\
+			srcs/mouse_listener.c	\
+			srcs/pxl_to_img.c		\
+			srcs/execute.c			\
+			srcs/ft_itoa.c			\
+			srcs/ft_strncmp.c		\
+			srcs/init_2.c			\
+			srcs/main.c				\
+			srcs/print_error.c
 
-SRC		=	sources/main.c							\
-			sources/image.c							\
-			sources/fractol.c						\
-			sources/algo.c							\
-			sources/struct.c						\
-			sources/listener.c						\
-			sources/mouse_listener.c				
+OBJS 	= ${SRCS: %.c=%.o}
+INCLUDE	= -I./includes/ -L./mlx -lmlx
 
-OBJ		=	$(patsubst src/%.c,./%.o,$(SRC))
+$(TARGET) : $(OBJS)
+	$(CC) $(CFLAG) $(OBJS) $(INCLUDE) $(FFLAG) -o $(TARGET)
 
-FLAG	=	-Wall -Werror -Wextra -framework OpenGL -framework AppKit
+all : $(TARGET)
 
-.SILENT:
+clean :
+	rm -f $(OBJS)
 
-$(NAME): $(OBJ)
-	make -C libft/
-	gcc $(FLAG) $(OBJ)  -L/usr/local/lib -lmlx -L libft/ -lft -o $(NAME)
-	printf '\033[4m'
-	printf '\033[32m[ ✔ ] %s\n\033[0m' "fractol is done !"
-./%.o: src/%.c
-	gcc $(FLAG) -c $< -o $@
-	printf '\033[0m[ ✔ ] %s\n\033[0m' "$<"
+fclean : clean
+	rm -f $(TARGET)
 
-clean:
-	make -C libft/ clean
-	/bin/rm -rf *.o
-	printf '\033[31m[ ✔ ] %s\n\033[0m' "Clean"
+re : fclean all
 
-fclean: clean
-	make -C libft/ fclean
-	/bin/rm -f $(NAME)
-	printf '\033[31m[ ✔ ] %s\n\033[0m' "Fclean"
-
-javel:
-	clear
-
-boom : javel fclean $(NAME) clean
-	./fractol julia
-
-re: fclean all
-
-all: $(NAME)
-
-.PHONY: clean fclean re all
+.PHONY: $(TARGET) 
