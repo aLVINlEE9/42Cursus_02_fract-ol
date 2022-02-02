@@ -6,18 +6,16 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:50:05 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/30 01:50:00 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/03 08:47:16 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	key_1(int keycode, t_data *data)
+void	key_1(int keycode)
 {
 	if (keycode == KEY_ESC)
 	{
-		mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
-		mlx_destroy_image(data->mlx.mlx_ptr, data->img.img_ptr);
 		exit(0);
 	}
 }
@@ -67,7 +65,7 @@ int	listener(int keycode, void *param)
 	t_data	*data;
 
 	data = (t_data *)param;
-	key_1(keycode, data);
+	key_1(keycode);
 	key_2(keycode, data);
 	key_3(keycode, data);
 	key_4(keycode, data);

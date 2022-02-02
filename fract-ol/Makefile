@@ -6,7 +6,7 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 00:04:04 by seungsle          #+#    #+#              #
-#    Updated: 2022/02/03 08:23:10 by seungsle         ###   ########.fr        #
+#    Updated: 2022/02/03 08:46:01 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS 	=	srcs/check_valid.c		\
 OBJS 	= ${SRCS: %.c=%.o}
 INCLUDE	= -I./includes/ -L./mlx -lmlx
 
-$(TARGET) : $(OBJS)
+$(TARGET) :
 	$(CC) $(CFLAG) $(OBJS) $(INCLUDE) $(FFLAG) -o $(TARGET)
 
 all : $(TARGET)
@@ -43,5 +43,3 @@ fclean : clean
 	rm -f $(TARGET)
 
 re : fclean all
-
-.PHONY: $(TARGET) 
