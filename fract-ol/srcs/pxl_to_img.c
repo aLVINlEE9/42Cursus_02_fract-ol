@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:14:53 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/30 01:50:12 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/03 08:26:06 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ void	pxl_to_img(t_data *data)
 		}
 	}
 	else
-		error_detected(MLX_GET_DATA_ADDR_ERROR, data);
+		error_detected(MLX_GET_DATA_ADDR_ERROR);
 	return ;
 }

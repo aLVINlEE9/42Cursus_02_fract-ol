@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/03 08:24:11 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/03 08:25:15 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,9 +143,9 @@ int		listener(int keycode, void *param);
 void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data);
 int		mouse_scroll(int button, int x, int y, void *param);
 
-void	error_param(int error, t_data *data);
+void	error_param(int error);
 void	error_malloc(int error, t_data *data);
-void	error_detected(int error, t_data *data);
+void	error_detected(int error);
 
 void	calc_axis(int x, int y, t_pxl *pxl);
 void	put_color(t_data *data, t_img *img, int x, int y);

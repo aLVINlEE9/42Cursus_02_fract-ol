@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:33:34 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/30 01:49:33 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/03 08:25:37 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	loop(t_data *data)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->img.img_ptr);
 	}
 	else
-		error_detected(MLX_NEW_IMAGE_ERROR, data);
+		error_detected(MLX_NEW_IMAGE_ERROR);
 }
 
 void	execute(t_data *data)
@@ -44,8 +44,8 @@ void	execute(t_data *data)
 			mlx_loop(data->mlx.mlx_ptr);
 		}
 		else
-			error_detected(MLX_NEW_WINDOW_ERROR, data);
+			error_detected(MLX_NEW_WINDOW_ERROR);
 	}
 	else
-		error_detected(MLX_INIT_ERROR, data);
+		error_detected(MLX_INIT_ERROR);
 }
