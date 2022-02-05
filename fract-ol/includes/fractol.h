@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/05 18:18:27 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:38:41 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define INVALID_PARAM_NUM_ERROR	-5
 # define INVALID_PARAM_ERROR	-6
 # define MLX_GET_DATA_ADDR_ERROR	-7
+# define INVALID_NUMBER			-8
 
 # define SCROLL_UP				4
 # define SCROLL_DOWN			5
