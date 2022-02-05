@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:28:52 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/03 14:42:53 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/05 17:17:41 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	julia(t_data *data, t_pxl *pxl, int x, int y)
 	pxl->curr[0] = 0;
 	pxl->curr[1] = 0;
 	calc_axis(x, y, pxl);
-	data->c.r = -0.75;
-	data->c.i = 0;
+	data->c.r = data->juliac.cr;
+	data->c.i = data->juliac.ci;
 	data->z.r = ((pxl->curr[0] - WIN_WIDTH / 2) * (4.0) / WIN_WIDTH);
 	data->z.i = ((WIN_HEIGHT / 2) - pxl->curr[1]) * (4.0) / WIN_HEIGHT;
 	while (++i < data->loop_max)

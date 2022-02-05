@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:06:06 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/03 08:25:15 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:18:27 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 # define MLX_INIT_ERROR			-1
 # define MLX_NEW_WINDOW_ERROR	-2
 # define MLX_NEW_IMAGE_ERROR	-3
-# define MANY_PARAM_ERROR		-4
-# define INVALID_PARAM_ERROR	-5
-# define MLX_GET_DATA_ADDR_ERROR	-6
+# define NONE_PARAM_ERROR		-4
+# define INVALID_PARAM_NUM_ERROR	-5
+# define INVALID_PARAM_ERROR	-6
+# define MLX_GET_DATA_ADDR_ERROR	-7
 
 # define SCROLL_UP				4
 # define SCROLL_DOWN			5
@@ -46,6 +47,14 @@
 # define WIN_HEIGHT				800
 
 typedef unsigned char			t_un_char;
+
+typedef struct s_juliac
+{
+	double		ci;
+	double		cr;
+	long long	integer;
+	double		decimal;
+}				t_juliac;
 
 typedef struct s_axis
 {
@@ -113,44 +122,43 @@ typedef struct s_data
 	t_z			z;
 	t_c			c;
 	t_axis		axis;
+	t_juliac	juliac;
 }				t_data;
 
 void	check_valid(int argc, char **argv, t_data *data);
-
 void	loop(t_data *data);
 void	execute(t_data *data);
-
 void	put_str(t_data *data);
+float	ft_abs(float abs);
 int		mandelbrot(t_data *data, t_pxl *pxl, int x, int y);
 int		julia(t_data *data, t_pxl *pxl, int x, int y);
 int		burningship(t_data *data, t_pxl *pxl, int x, int y);
-
+void	get_decimal(char *str, double db_ret, long long p, t_data *data);
+void	get_num(char *str, long long ret, long long p, t_data *data);
+double	ft_atod(char *str, t_data *data);
+char	*ft_itoa(int n);
 void	ft_putstr_fd(char *s, int fd);
-
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-
 void	init_pxl(t_data *data);
 void	init_rgb(t_data *data);
 void	init_mlx(t_data *data);
 void	init_img(t_data *data);
 void	init(t_data *data);
-
 void	init_zc(t_data *data);
 void	init_axis(t_data *data);
-
+void	init_juliac(t_data *data);
+void	key_1(int keycode);
+void	key_2(int keycode, t_data *data);
+void	key_3(int keycode, t_data *data);
+void	key_4(int keycode, t_data *data);
 int		listener(int keycode, void *param);
-
 void	get_zoomed_center(int x, int y, t_pxl *pxl, t_data *data);
 int		mouse_scroll(int button, int x, int y, void *param);
-
+void	parsing_num(char *ar2, char *ar3, t_data *data);
 void	error_param(int error);
-void	error_malloc(int error, t_data *data);
 void	error_detected(int error);
-
 void	calc_axis(int x, int y, t_pxl *pxl);
 void	put_color(t_data *data, t_img *img, int x, int y);
 void	pxl_to_img(t_data *data);
-
-char	*ft_itoa(int n);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 00:04:04 by seungsle          #+#    #+#              #
-#    Updated: 2022/02/03 14:42:17 by seungsle         ###   ########.fr        #
+#    Updated: 2022/02/05 18:18:03 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRCS 	=	srcs/check_valid.c		\
 			srcs/ft_strncmp.c		\
 			srcs/init_2.c			\
 			srcs/main.c				\
-			srcs/print_error.c
+			srcs/print_error.c		\
+			srcs/ft_atod.c			\
+			srcs/parsing_num.c
 
 OBJS 	= ${SRCS:.c=.o}
 INCLUDE	= -I./includes/ -L./mlx -lmlx
