@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 18:16:35 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/05 18:52:27 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:57:26 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 void	check_num(char *str)
 {
-	if (*str =='-')
+	if (*str == '-')
 	{
-		while(*++str)
+		while (*++str)
+		{
 			if ((*str >= '0' && *str <= '9') || *str == '.')
 				continue ;
 			else
 				error_detected(INVALID_NUMBER);
+		}
 	}
 	else if (*str >= '0' && *str <= '9')
 	{
-		while(*++str)
+		while (*++str)
+		{
 			if ((*str >= '0' && *str <= '9') || *str == '.')
 				continue ;
 			else
 				error_detected(INVALID_NUMBER);
+		}
 	}
 	else
 		error_detected(INVALID_NUMBER);
