@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:47:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/05 18:01:19 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:33:41 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ void	init(t_data *data)
 	init_pxl(data);
 	init_zc(data);
 	init_axis(data);
-	init_juliac(data);
 	return ;
 }

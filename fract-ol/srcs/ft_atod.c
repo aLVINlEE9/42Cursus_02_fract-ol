@@ -6,12 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:21:03 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/05 18:28:52 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:30:19 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-#include <stdio.h>
 
 void	get_decimal(char *str, double db_ret, long long p, t_data *data)
 {
@@ -66,10 +65,8 @@ double	ft_atod(char *str, t_data *data)
 		str++;
 	}
 	get_num(str, ret, p, data);
-	printf("%lld %f\n", data->juliac.integer, data->juliac.decimal);
 	db_ret = data->juliac.integer + data->juliac.decimal;
 	data->juliac.integer = 0;
 	data->juliac.decimal = 0;
-	printf("%f\n", db_ret);
 	return (db_ret);
 }
