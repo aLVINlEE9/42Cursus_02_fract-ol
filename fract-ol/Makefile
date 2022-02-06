@@ -6,7 +6,7 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 00:04:04 by seungsle          #+#    #+#              #
-#    Updated: 2022/02/05 18:18:03 by seungsle         ###   ########.fr        #
+#    Updated: 2022/02/06 18:18:29 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(TARGET) : $(OBJS)
 	$(CC) $(CFLAG) $(OBJS) $(INCLUDE) $(FFLAG) -o $(TARGET)
 
 .c.o:
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAG) -c $< -o $@
 
 clean :
 	rm -f $(OBJS)
