@@ -6,14 +6,14 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 00:04:04 by seungsle          #+#    #+#              #
-#    Updated: 2022/02/06 18:18:29 by seungsle         ###   ########.fr        #
+#    Updated: 2022/02/10 20:32:01 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc -O3
-CFLAG	= -Werror -Wall -Wextra
+NAME	= fractol
+CC		= gcc
+CFLAG	= -O3 -Werror -Wall -Wextra
 FFLAG	= -framework OpenGL -framework AppKit
-TARGET	= fractol
 SRCS 	=	srcs/check_valid.c		\
 			srcs/fractol.c			\
 			srcs/ft_putstr_fd.c		\
@@ -33,10 +33,10 @@ SRCS 	=	srcs/check_valid.c		\
 OBJS 	= ${SRCS:.c=.o}
 INCLUDE	= -I./includes/ -L./mlx -lmlx
 
-all : $(TARGET)
+all : $(NAME)
 
-$(TARGET) : $(OBJS)
-	$(CC) $(CFLAG) $(OBJS) $(INCLUDE) $(FFLAG) -o $(TARGET)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAG) $(OBJS) $(INCLUDE) $(FFLAG) -o $(NAME)
 
 .c.o:
 	$(CC) $(CFLAG) -c $< -o $@
@@ -45,7 +45,7 @@ clean :
 	rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re : fclean all
 
